@@ -1,0 +1,21 @@
+# Repos propios (historial independiente)
+barrio-frontend/
+barrio-backend/
+
+# Secretos y configuración local
+PUBLICACION_SECRETOS.txt
+.env
+.env.*
+.claude/
+
+# Entornos y dependencias
+venv/
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

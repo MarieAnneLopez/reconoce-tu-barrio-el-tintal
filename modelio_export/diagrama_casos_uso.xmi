@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1">
+  <uml:Model xmi:id="model_1" name="Casos de uso">
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_sistema" name="Reconoce tu Barrio: El Tintal">
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_vecino" name="Vecino"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_01" name="CU-01: Centros Educativos"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_02" name="CU-02: Escenarios Deportivos"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_03" name="CU-03: Sistemas de Cámaras de Seguridad"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_04" name="CU-04: Zonas Verdes"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_05" name="CU-05: Datos Catastrales"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_06" name="CU-06: Estado de Calles"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_07" name="CU-07: Estaciones del Sistema de Transporte"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_08" name="CU-08: Sitios de Comida"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_09" name="CU-09: Librerías"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_10" name="CU-10: Datos sobre Robos"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_11" name="CU-11: Información o Datos de la Localidad"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_12" name="CU-12: Centros de Atención Inmediata"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_13" name="CU-13: Veterinarias"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_14" name="CU-14: Barberías"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_01" memberEnd="end_a_01 end_u_01">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_01" type="actor_vecino" association="assoc_01"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_01" type="uc_01" association="assoc_01"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_02" memberEnd="end_a_02 end_u_02">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_02" type="actor_vecino" association="assoc_02"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_02" type="uc_02" association="assoc_02"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_03" memberEnd="end_a_03 end_u_03">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_03" type="actor_vecino" association="assoc_03"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_03" type="uc_03" association="assoc_03"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_04" memberEnd="end_a_04 end_u_04">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_04" type="actor_vecino" association="assoc_04"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_04" type="uc_04" association="assoc_04"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_05" memberEnd="end_a_05 end_u_05">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_05" type="actor_vecino" association="assoc_05"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_05" type="uc_05" association="assoc_05"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_06" memberEnd="end_a_06 end_u_06">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_06" type="actor_vecino" association="assoc_06"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_06" type="uc_06" association="assoc_06"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_07" memberEnd="end_a_07 end_u_07">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_07" type="actor_vecino" association="assoc_07"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_07" type="uc_07" association="assoc_07"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_08" memberEnd="end_a_08 end_u_08">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_08" type="actor_vecino" association="assoc_08"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_08" type="uc_08" association="assoc_08"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_09" memberEnd="end_a_09 end_u_09">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_09" type="actor_vecino" association="assoc_09"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_09" type="uc_09" association="assoc_09"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_10" memberEnd="end_a_10 end_u_10">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_10" type="actor_vecino" association="assoc_10"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_10" type="uc_10" association="assoc_10"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_11" memberEnd="end_a_11 end_u_11">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_11" type="actor_vecino" association="assoc_11"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_11" type="uc_11" association="assoc_11"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_12" memberEnd="end_a_12 end_u_12">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_12" type="actor_vecino" association="assoc_12"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_12" type="uc_12" association="assoc_12"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_13" memberEnd="end_a_13 end_u_13">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_13" type="actor_vecino" association="assoc_13"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_13" type="uc_13" association="assoc_13"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="assoc_14" memberEnd="end_a_14 end_u_14">
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_a_14" type="actor_vecino" association="assoc_14"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="end_u_14" type="uc_14" association="assoc_14"/>
+      </packagedElement>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>
