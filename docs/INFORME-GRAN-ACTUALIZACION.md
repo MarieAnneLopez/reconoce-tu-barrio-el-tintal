@@ -217,7 +217,7 @@ Playwright + axe en la matriz completa, re-medición de paleta y métricas 3D: n
 | Vías con sentido, cruces, semáforos, suelo, árboles, nombres y 13 edificios que faltan en Catastro | OpenStreetMap por Overpass | **ODbL 1.0**: «© colaboradores de OpenStreetMap»; lo derivado es base de datos derivada ODbL |
 | Fotos del carrusel y del vuelo | Wikimedia Commons, con autor y licencia por foto (`carouselCredits.json`) | CC BY 4.0 o CC BY-SA 4.0 según la foto (todas en Créditos de fotos) |
 | Fotos de los lugares | Wikimedia Commons y Mapillary | CC BY-SA 4.0 (Mapillary) y la de cada foto de Commons |
-| Placa por código de lote | Unión Construcción `LOTECODIGO` = Lote `LOTCODIGO` = Placa `PDOCLOTE` | Ver D107 [PROPUESTA] |
+| Placa por código de lote | Unión Construcción `LOTECODIGO` = Lote `LOTCODIGO` = Placa `PDOCLOTE` | Ver D107 (confirmada) |
 
 Todo se descarga y procesa una vez, en el build (`npm run datos:3d`). El navegador del visitante no consulta servicios externos para la maqueta.
 
@@ -235,13 +235,15 @@ No se usó Google Maps, Street View, Geocoding API ni Places API, ni datos o im�
 - **Pendiente de medir:** matriz Playwright + axe, re-medición de paleta (D119), métricas 3D, Lighthouse e INP en producción, JS por ruta.
 - **Worktrees no quitados:** `gran-wt/mapas` y el de deploy tienen trabajo sin comitear (ver §0).
 
-## 10. [PROPUESTA] para que Martín confirme
+## 10. Propuestas confirmadas por Martín (2026-11-18)
+
+Martín pidió hacer todas las [PROPUESTA]: quedan confirmadas tal como están aplicadas.
 
 - **`--texto-cuerpo` negro:** marrón sobre crema (3,56) no llega a 4,5:1 en texto normal. Se cambia en una línea.
 - **Escenario de Galería:** crema #FCF0CF con rejilla de suelo marrón que se desvanece hacia crema.
 - **Placa por código de lote en vez de por posición (D107):** el 86,7 % de las placas cae en su propio lote; la unión por código cubre el 99,8 % de los edificios.
 - **Colores del ciclo día/noche (D106):** 27 colores propios en `map-palette.css`; edificios medianos en marrón ladrillo.
-- **Atlas de Mini Marie (D109):** sus pesos (run_420 393 KB, wave_320 414 KB, wave_640 747 KB, idle_560 689 KB). El atlas es ilustración con miles de colores, así que sin pérdida pesaría 2–4 veces más; se queda con pérdida (calidad 90).
+- **Atlas de Mini Marie (D109):** con los sprites de 32 cuadros sin pérdida pesan hoy run_420 165 KB, wave_320 284 KB, wave_640 208 KB y sit entre 30 y 120 KB; solo el reposo (idle_560, 689 KB) sigue con pérdida (calidad 90), porque es ilustración con miles de colores y sin pérdida pesaría 2–4 veces más.
 - **Logo de la cabecera (D109):** sigue estático.
 
 ## 11. Skills
