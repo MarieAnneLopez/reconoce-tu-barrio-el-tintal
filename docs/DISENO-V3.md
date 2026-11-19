@@ -1,6 +1,6 @@
 # Diseño v3: «Interfaz elegante»
 
-**Pedido:** Martín, 2026-11-16 · **Decisiones:** D84 (paleta), D85 (tipografía y forma), D86 (Mini Marie) ·
+**Pedido:** Martín, 2026-11-16 · **Decisiones:** D96 (paleta; antes D84), D85 (tipografía y forma), D86 (Mini Marie) ·
 **Reemplaza:** la paleta violeta D79 y el estilo «ladrillo y píxel» de `docs/DISENO-V2.md` (que se conserva como historia).
 **Diseño completo y parámetros de cada etapa:** `docs/superpowers/specs/2026-11-16-interfaz-elegante-design.md`.
 
@@ -9,57 +9,61 @@ marcado E2, E3 o E4 es la regla que seguirán esas etapas.
 
 ## 1. Dirección visual
 
-**En una frase:** una página muy limpia, de noche y papel, donde la tipografía es la protagonista y el
-ámbar se usa como acento escaso.
+**En una frase:** una página limpia en crema, con texto negro, donde la tipografía es la protagonista;
+rosa claro para lo que agrupa, rosa para lo que destaca, y amarillo y marrón como acentos medidos (D100).
 
 - Mucho espacio negativo; nada compite con el título.
-- Líneas de 1 px y radio de 4 px. Sin sombras duras, sin esquinas de píxel y sin bordes gruesos.
+- Líneas de 1 px y radio de 4 px. Sin sombras. Degradado sutil solo en el hero y en la cabecera.
 - Mini Marie sigue en todos sus sitios: es el único dibujo de píxel de la interfaz.
+- Cada sección entra con el manifiesto del Inicio y su propio título (D101, `SectionIntro`).
 
-## 2. Paleta y reparto (D84)
+## 2. Paleta y reparto (D100 de Martín, reemplaza a D96)
 
-El reparto por área visible es un **supuesto** de Claude (Martín dio los colores y el orden de peso); se
-mide al cerrar la etapa 4, cuando todas las páginas estén rediseñadas.
+Martín fijó la paleta, el reparto y los roles el 2026-11-17. El reparto se mide por página, sin fotos,
+lienzos WebGL ni mapas y sin el texto negro, y debe quedar a ±3 puntos.
 
 | Token | Color | Reparto | Dónde va |
 |---|---|---|---|
-| `--c-noche` | #283845 | ~55 % | Fondo de página y superficies oscuras; texto sobre papel y sobre ámbar |
-| `--c-papel` | #E8D8C9 | ~30 % | Superficies claras; texto sobre noche |
-| `--c-ambar` | #FFA649 | ~10 % | Acento: botón principal, foco, líneas finas, realces |
-| `--c-acero` | #4B607F | ~4 % | Líneas de 1 px y estados secundarios |
-| `--c-naranja` | #F3701E | ≤ 1 % | Puntos e indicadores minúsculos |
+| `--c-crema` | #FCF0CF | 60 % | Fondo general, márgenes, espacio negativo |
+| `--c-rosa-claro` | #F3D1DC | 18 % | Tarjetas, secciones alternas, testimonios, barras laterales y paneles; la franja del pie |
+| `--c-rosa` | #F6A7C1 | 12 % | Banners destacados, badges, bordes activos, íconos ilustrativos, la cabecera (con degradado sutil) y la selección |
+| `--c-amarillo` | #FDCF76 | 5 % | Botones secundarios, etiquetas de novedad, estrellas, subrayados clave, hover y foco |
+| `--c-marron` | #B16E4B | 5 % | Títulos de alto impacto (solo sobre crema y grandes), botón CTA y banda del pie |
+| `--c-negro` | #000000 | — | Texto del cuerpo (`--texto-cuerpo`, [PROPUESTA]) |
 
-Blanco y negro solo en el modo de alto contraste; el negro aparece además, translúcido, en la única
-sombra suave (§4). Estados semánticos, sin cambios: éxito #86EFAC, aviso #FDBA74 y error #FCA5A5. El amarillo solo existe en el sprite de Mini Marie. Dentro de los mapas (2D, 3D,
-vista previa y marcadores) manda `src/styles/map-palette.css` (D83) y no se toca: si un control choca
-con sus azules, se ajusta el control.
+**Reglas que salen de los contrastes:** títulos marrón solo sobre crema y en texto grande (≥ 24 px, o
+≥ 18,66 px en negrita); nunca marrón como texto sobre rosa claro, rosa ni amarillo. El CTA va en marrón
+con texto crema de 19 px en Inter 700, que `ui.css` fuerza a todo `.ui-btn--primary` (texto grande, 3:1).
+El pie es una franja rosa claro con texto negro y una banda marrón con el nombre del sitio en crema grande.
+[PROPUESTA] El cuerpo sigue en negro porque marrón sobre crema (3,56) no llega a 4,5:1: está en
+`--texto-cuerpo` para cambiarlo en una línea. Estados semánticos oscuros sobre crema (éxito #166534,
+aviso #9A3412, error #991B1B), siempre con ícono y texto; en alto contraste vuelven a los claros
+(#86EFAC, #FDBA74, #FCA5A5). Mini Marie nunca va sobre amarillo. Dentro de los mapas manda
+`src/styles/map-palette.css` (D83): los avisos que caen sobre el mapa van en una caja crema.
 
 Los colores se definen una sola vez, en `src/styles/tokens.css`. Los componentes usan los tokens
 semánticos (`--bg-*`, `--text-*`, `--interactive-*`, `--border-*`), que en alto contraste pasan a blanco
-y negro (`contrast.css`).
+y negro (`contrast.css`). Las clases `.tone-noche` y `.tone-papel` conservan su nombre: «noche» es ahora
+la superficie crema y «papel» la rosa claro.
 
-### Pares medidos (WCAG 2.x)
+### Pares medidos (WCAG 2.x, reverificados en tokens.test.ts)
 
 | Texto sobre fondo | Contraste | Uso |
 |---|---|---|
-| papel / noche | 8,67 | texto normal |
-| papel al 90 % / noche | 7,35 | texto secundario |
-| papel al 76 % / noche | 5,74 | texto atenuado |
-| ámbar / noche | 6,20 | enlaces y realces |
-| noche / papel | 8,67 | texto normal sobre superficies claras |
-| noche / ámbar | 6,20 | texto de los botones principales |
-| papel / acero | 4,60 | texto normal sobre acero |
-| acero / papel | 4,60 | texto secundario y líneas sobre papel |
-| éxito, aviso, error / noche | 8,59 · 7,15 · 6,35 | mensajes de estado |
-| naranja / noche | 4,10 | **solo texto grande o detalle** |
-| ámbar / acero | 3,29 | **solo texto grande, íconos y líneas** |
+| negro / crema | 18,50 | texto normal |
+| negro / rosa claro | 14,96 | texto normal |
+| negro / rosa | 11,22 | texto sobre la cabecera, banners, badges y la selección |
+| negro / amarillo | 14,36 | texto de los botones secundarios y del hover |
+| negro / marrón | 5,20 | texto normal sobre bandas marrones |
+| marrón / crema | 3,56 | **solo títulos grandes, íconos y líneas** |
+| crema / marrón | 3,56 | **solo texto grande**: CTA (19 px, Inter 700) y banda del pie |
+| marrón / rosa claro · amarillo · rosa | 2,88 · 2,76 · 2,16 | **nunca como texto** |
+| blanco / marrón | 4,04 | **solo texto grande** |
+| éxito, aviso, error / crema | 6,28 · 6,44 · 7,32 | mensajes de estado |
 
-**Prohibidos para texto:** ámbar sobre papel y papel sobre ámbar (1,40), acero sobre noche (1,88) y
-naranja sobre papel (2,11). Consecuencias: sobre ámbar solo va texto noche; un enlace dentro de una
-superficie papel va en noche (subrayado), nunca en ámbar; el acero sobre noche es solo decoración.
-
-**Líneas:** papel al 55 % sobre noche mide 3,78 (sirve como borde de un campo o de un control);
-papel al 20 % mide 1,66 (solo separadores decorativos).
+**Líneas:** marrón sobre crema 3,56 (sirve de borde de un control); sobre rosa claro mide 2,88, así que
+dentro de `.tone-papel` la línea fuerte pasa a negro y el marrón queda solo como separador decorativo.
+**Foco:** doble anillo, amarillo por fuera y negro por dentro (≥ 3:1 sobre cualquier fondo de la paleta).
 
 Las pruebas `src/styles/tokens.test.ts` fijan la paleta permitida, 18 pares de texto en modo normal y
 en alto contraste, el foco doble y los pares de esta tabla. `src/styles/consumers.test.ts` mide lo que
@@ -73,8 +77,20 @@ WhatsApp en ámbar sobre ámbar con todos los pares de tokens en verde.
 |---|---|---|
 | Display | **Anton** 400 (condensada pesada) | `h1`, titulares, letrero de la bienvenida. Sin negrita falsa. |
 | Elegante | **Cormorant Garamond** cursiva 500 y 600 | `h2`, `h3`, títulos de sección y de foto |
-| Interfaz | **Inter** 300 de base; 400–600 para énfasis | Párrafos, controles y menú |
-| Cifras | Inter con números tabulares | Coordenadas, conteos y códigos |
+| Texto | **Soria** Regular (único estilo), D98 | Párrafos, listas, enlaces, menú, botones, etiquetas, formularios, tablas, HUD, controles de mapa, chat, pie, carga y créditos |
+| Subtítulos | **Inter** 400–600 | Solo `h4`–`h6` (los títulos conservan su fuente) |
+| Cifras | Soria (sin números tabulares) | Coordenadas, conteos y códigos |
+
+- **Soria** (D98): de By Dani (Daniel Iglesias), 2016, versión 001.000, licencia **SIL OFL 1.1**,
+  descargada de Font Squirrel (`fontsquirrel.com/fonts/soria`) por pedido de Martín. Se sirve en local:
+  `barrio-frontend/public/assets/fonts/soria/soria.ttf` con su `OFL.txt`, `@font-face` en
+  `src/styles/soria.css` con `font-display: swap`. Respaldo sin red: `Soria, Georgia, "Times New Roman",
+  serif`. Un solo estilo: `font-synthesis: none`, peso 400, interlineado 1,6; ningún texto baja de 16 px fuera de los mapas; la
+  jerarquía va con tamaño, espaciado y color. Los metadatos de la fuente traen además un texto de
+  atribución («You must give appropriate credit…»): se cumple citando autor y licencia aquí y en el
+  plan maestro.
+- **Glifos que le faltan:** `¡ « » ‘ % ° - – — … ·` (comprobado sobre su tabla cmap; tiene 142). El
+  navegador los toma de Georgia, carácter por carácter.
 
 - **Chorus**, la display que pidió Martín, no está en el registro de paquetes (404 comprobado), así que
   se usa Anton (`@fontsource/anton`, OFL-1.1). Para usar Chorus a mano: dejar `Chorus.woff2` en
@@ -102,14 +118,15 @@ WhatsApp en ámbar sobre ámbar con todos los pares de tokens en verde.
 | Bienvenida | velo noche, «HOLA» en display papel, botón principal, confeti de puntos ámbar, papel y acero | **E1** |
 | Pantalla de carga | fondo noche, Mini Marie corriendo, suelo de 1 px con trazos ámbar, texto en mayúsculas espaciadas | **E1** |
 | Logo y avatar del chat | Mini Marie en un círculo papel con línea de 1 px | **E1** |
-| Header | fijo, 64 px: logo, nombre, repetir bienvenida, cuenta, idioma y «Menú». Bajo 640 px los tres controles van dentro del menú | **E2** |
+| Header | fijo, 64 px: logo, nombre, repetir bienvenida, cuenta, idioma y «Menú». Bajo 640 px los tres controles van dentro del menú. Rosa sobre secciones crema y crema sobre las rosa claro (D96) | **E2** · D96 |
 | Menú desplegable | panel a todo el ancho con las rutas de `lib/navigation.ts` y las 14 categorías; foco atrapado, Escape, cierre al navegar; página activa subrayada | **E2** |
-| Tono | `.tone-papel` / `.tone-noche` reescopan texto y líneas; el header toma el tono de la sección que pasa bajo él (`data-tone`) y puede flotar (`data-header-float`) | **E2** |
+| Tono | `.tone-papel` / `.tone-noche` reescopan texto y líneas; el header toma el tono de la sección que pasa bajo él (`data-tone`) y puede flotar (`data-header-float`). Solo flota sobre fondos lisos: en el Inicio, los capítulos 1 y 4; sobre fotos o mapas va sólido (D92) | **E2** · E3 |
 | Superficies | `.ui-card` (noche + línea), `.ui-card--paper`, `.ui-panel` (flotantes), `.ui-eyebrow`, `.ui-prose`, `.ui-rule` | **E2** |
-| Encabezado de página | regla ámbar, etiqueta en versalitas, `h1` en display y descripción en serif cursiva; sin placa | **E2** |
-| Botones y campos | primario ámbar/noche; secundario de contorno; ghost con tinte del propio texto; campos papel con caja de 1 px | **E2** |
-| Pie | banda papel a todo el ancho, alineada con la columna de 1200 px | **E2** |
-| Inicio en 4 capítulos | ver el diseño, §6 | E3 |
+| Encabezado de página | banda amarilla de resalte (D96) con regla de 1 px, etiqueta en versalitas, `h1` en display y descripción en serif cursiva | **E2** · D96 |
+| Botones y campos | primario rosa con texto negro; secundario de contorno; ghost con tinte del propio texto; campos rosa claro con caja de 1 px | **E2** · D96 |
+| Pie | dos bandas a todo el ancho: rosa (contacto, perfil, preguntas) y marrón (módulos, ubicación, créditos); texto negro | **E2** · D96 |
+| Inicio en 4 capítulos | manifiesto, vuelo entre fotos, maqueta a pantalla completa y reel de los 14 módulos; 11 pantallas (5 con movimiento reducido). Detalle en el diseño, §6, y en `INFORME_E3_interfaz_elegante.md` | **E3** |
+| Marcadores de mapa | MapLibre los coloca con `position: absolute`; `.maplibregl-marker.map-marker` lo asegura sea cual sea el orden de carga de las hojas (D93) | **E3** |
 | Galería | ver el diseño, §7 | E4 |
 
 Desde la etapa 2 ningún componente usa las clases del estilo anterior (`brick-*`, `px-corners`, `band-*`,

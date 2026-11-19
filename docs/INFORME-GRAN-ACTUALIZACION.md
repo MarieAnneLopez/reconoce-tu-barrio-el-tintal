@@ -4,11 +4,15 @@ Reconoce tu Barrio — El Tintal · 2026-11-18 · para Martín
 
 Sitio: https://reconoce-el-tintal.pages.dev · Decisiones D99–D120 en `PLAN_MAESTRO.md`.
 
-⟨POR MEDIR: resumen final, hashes empujados y estado de producción⟩
+**Cierre (2026-11-18):** producción publicada (despliegue `b98c04b5`) y sirviendo `/assets/index-DYLftdyt.js` (antes `index-OfFV0fuJ.js`); prod-check en 34 rutas×ancho (1440 y 390): 0 errores de consola. barrio-frontend empujado sin force: `a98fde4..4719402` a `origin/main`. barrio-backend sin cambios (limpio, `54c2ad0`, al día con su origin). sha256 de «MINI MARIE.png» igual al inicio y al final (65F8F964…D106).
 
 ## 0. Estado del cierre (una línea por bloque)
 
 - **Bloque A, fusión (2026-11-18):** ✅ `gran/fix-paleta` (merge d8c492d, sin conflictos), `gran/fix-entradas` (984ac72; conflicto solo de comentario en `section-intro.css`, se unen los dos porqués) y `gran/fix-carga` (2d88f62; add/add en `src/test/cssLength.ts`: dos ayudantes distintos, se conservan los dos y el de la carga pasa a `cssGeometry.ts`) integradas en `interfaz-elegante` sin descartar commits. [PROPUESTA] cosméticas: cuerpo negro, piso de la Galería y colores día/noche ya estaban; logo estático aplicado con el revert 98bde0e de e817716 (D123). Tras cada merge: lint y typecheck en verde, pruebas de la zona y smoke en Edge sin errores de consola. Worktrees quitados: `gran-wt/calles` y `gran-wt/edificios`; NO quitados: `gran-wt/mapas` (2 archivos sin seguimiento: `src/test/stateScan.ts` y `src/components/ui/stateScan.test.ts`, un escáner PAL-06 que el carril no llegó a comitear) y el de deploy (detached 893b30c, con cambios sin comitear en `e2e/home.spec.ts`, `e2e/map.spec.ts`, `map.css` y `scale.css`, más 2 archivos sin seguimiento). No se borró ninguna rama.
+
+- **Bloque B, sprites (2026-11-18):** ✅ run, wave y sit de 32 cuadros desde las hojas de Martín (commit 4719402, D124). Atlas antes→después (bytes): run_105 101376→40142, run_210 226734→124010, run_420 403314→169252, wave_80 76472→29592, wave_160 183496→99940, wave_320 424178→290498, wave_640 765574→212984, sit_48 30990→9378, sit_96 77436→36328, sit_192 160802→121164. Cero magenta y cero halo sobre crema, rosa claro, rosa y negro (`sprite_sheets32.test.mjs`).
+- **Bloques C y D (2026-11-18):** lint, typecheck, líneas y build en verde; vitest con 1 fallo bloqueado; publicado y empujado (ver cierre arriba).
+- **D117 (TBT de Galería):** la rejilla de espera muestra 12 fotos en vez de 208 (tarea de 262 ms en el primer pintado); prueba `PhotoRibbon.pending.test.tsx`. Detalle en PLAN_MAESTRO.md.
 
 ## 1. Qué se hizo, por bloque
 
@@ -29,7 +33,7 @@ Sitio: https://reconoce-el-tintal.pages.dev · Decisiones D99–D120 en `PLAN_MA
 
 ### Commits
 
-⟨POR MEDIR: lista de commits de barrio-frontend desde 949b3a8 y estado de barrio-backend⟩
+173 commits de barrio-frontend desde 949b3a8 (`git log --oneline 949b3a8..4719402`). Merges: c9c0e4a datos, 97b8589 galería, bfdf830 sprites, 4b52212 y 621e0ce edificios, 18c7d7f calles, 4ee6a45 mapas, d8c492d fix-paleta, 984ac72 fix-entradas, 2d88f62 fix-carga; después 98bde0e (logo estático) y 4719402 (sprites de 32 cuadros de Martín, D124). barrio-backend: sin commits nuevos.
 
 ## 2. Mini Marie de 32 cuadros
 
@@ -141,10 +145,10 @@ Lighthouse 12.8.2, Moto G Power emulado, red lenta y CPU ×4 simulados. Formato 
 
 | Ruta | Antes (producción, 949b3a8) | Después (producción) |
 |---|---|---|
-| Inicio | 81 · 3,43 s · 0,033 · 192 ms · 2129 KB | ⟨POR MEDIR⟩ |
-| Mapa 3D | 81 · 2,61 s · 0,001 · 439 ms · 1542 KB | ⟨POR MEDIR⟩ |
-| Galería | 76 · 4,69 s · 0,000 · 119 ms · 1626 KB | ⟨POR MEDIR⟩ |
-| Centros educativos | 80 · 3,48 s · 0,000 · 287 ms · 1108 KB | ⟨POR MEDIR⟩ |
+| Inicio | 81 · 3,43 s · 0,033 · 192 ms · 2129 KB | no medido |
+| Mapa 3D | 81 · 2,61 s · 0,001 · 439 ms · 1542 KB | no medido |
+| Galería | 76 · 4,69 s · 0,000 · 119 ms · 1626 KB | no medido |
+| Centros educativos | 80 · 3,48 s · 0,000 · 287 ms · 1108 KB | no medido |
 
 Mediciones intermedias:
 
@@ -189,11 +193,21 @@ Antes, en producción:
 | Páginas de contenido | ~227 KB | ~661 KB |
 | Módulos (MapLibre) | ~675 KB | 2,27 MB |
 
-Después: ⟨POR MEDIR⟩.
+Después: no medido en este cierre (Martín pidió agilizar y subir); queda pendiente.
 
 ## 7. Verificación
 
-⟨POR MEDIR: comandos y salidas finales: lint, typecheck, vitest, check_line_length, build, Playwright + axe en todas las rutas a 390/768/1440 con movimiento reducido y alto contraste, y diagnóstico D95⟩
+```
+npm run lint        → eslint . --max-warnings 0 (sin avisos)
+npm run typecheck   → tsc --noEmit (sin errores)
+npx vitest run      → Test Files 2 failed | 267 passed (269) · Tests 3 failed | 1512 passed | 1 skipped (1516)
+                      (dos fallos eran el ancho de la sentada 29→26 px, ya corregido: SittingMarie 27/27;
+                       queda 1: «carrera: el pie no se mueve más de 3 px», BLOQUEADO, ver §9)
+node scripts/check_line_length.mjs → OK, 822 archivos de código, todos <= 100 líneas.
+npm run build       → ✓ built
+prod-check (producción, 1440 y 390) → errores: 0 en todas las rutas
+```
+Playwright + axe en la matriz completa, re-medición de paleta y métricas 3D: no corridas en este cierre (Martín pidió agilizar). D95: un solo navegador por vez, cerrado al terminar cada smoke.
 
 ## 8. Fuentes y licencias de datos
 
@@ -216,7 +230,10 @@ No se usó Google Maps, Street View, Geocoding API ni Places API, ni datos o im�
 - **Sentada de 32 cuadros (D109):** no queda fluida. El movimiento se concentra en saltos de un cuadro (2→3, 7→8, 16→17, 22→23, 30→31) que no se interpolan sin deformar la pierna y la falda. Hacen falta 2 o 3 poses dibujadas por Marie.
 - **Contornos dentados (D109):** algunos intermedios de la carrera los tienen, por el giro con vecino más cercano. Propuesta: giro tipo RotSprite.
 - **Reparto de paleta:** 14 de 20 mediciones quedan fuera de ±3 (tabla §4).
-- ⟨POR MEDIR: lo que quede tras el merge y la publicación⟩
+- **Pie de la carrera ≤ 3 px (BLOQUEADO):** con las hojas de Martín el pie apoyado salta entre cuadros (+18, −30, +18 px en 13→14, 17→18, 19→20); ningún avance uniforme lo cumple. Salida: `expected [ [ +0, 11.17… ], …(11) ] to deeply equal []`. Prueba y umbral sin tocar.
+- **Carrera, cuadros 5–8 descartados:** sentadilla deforme (manos fundidas, cabeza 30 px abajo); en su lugar van los 29–32 de Martín.
+- **Pendiente de medir:** matriz Playwright + axe, re-medición de paleta (D119), métricas 3D, Lighthouse e INP en producción, JS por ruta.
+- **Worktrees no quitados:** `gran-wt/mapas` y el de deploy tienen trabajo sin comitear (ver §0).
 
 ## 10. [PROPUESTA] para que Martín confirme
 

@@ -6,6 +6,7 @@
 > - Base de datos: Neon `barrio-tintal` (PostgreSQL 18 + PostGIS 3.6, us-east-1).
 > - Los valores secretos están en `Mini Marie/PUBLICACION_SECRETOS.txt`, fuera de los repos.
 > - Para volver a publicar el frontend, desde `barrio-frontend/`: `npm run build` y luego `npx wrangler pages deploy dist --project-name reconoce-el-tintal --branch main`.
+> - **API dormida (D91):** Render se apaga a los 15 min sin uso y las peticiones del proxy no lo despiertan. Al abrir el sitio, el navegador pide `/api/_wake`, el proxy lo redirige a la API y esa petición directa la arranca (~55 s). No hace falta abrir la URL de Render a mano.
 > - Lo de abajo es la guía original.
 
 
