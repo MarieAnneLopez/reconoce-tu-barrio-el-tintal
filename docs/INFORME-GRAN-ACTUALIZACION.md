@@ -243,7 +243,7 @@ Martín pidió hacer todas las [PROPUESTA]: quedan confirmadas tal como están a
 - **Escenario de Galería:** crema #FCF0CF con rejilla de suelo marrón que se desvanece hacia crema.
 - **Placa por código de lote en vez de por posición (D107):** el 86,7 % de las placas cae en su propio lote; la unión por código cubre el 99,8 % de los edificios.
 - **Colores del ciclo día/noche (D106):** 27 colores propios en `map-palette.css`; edificios medianos en marrón ladrillo.
-- **Atlas de Mini Marie (D109):** con los sprites de 32 cuadros sin pérdida pesan hoy run_420 165 KB, wave_320 284 KB, wave_640 208 KB y sit entre 30 y 120 KB; solo el reposo (idle_560, 689 KB) sigue con pérdida (calidad 90), porque es ilustración con miles de colores y sin pérdida pesaría 2–4 veces más.
+- **Atlas de Mini Marie (D109):** con los sprites de 32 cuadros sin pérdida pesan hoy run_420 165 KB, wave_320 284 KB, wave_640 208 KB y sit entre 9 y 118 KB; solo el reposo (idle_560, 689 KB) sigue con pérdida (calidad 90), porque es ilustración con miles de colores y sin pérdida pesaría 2–4 veces más.
 - **Logo de la cabecera (D109):** sigue estático.
 
 ## 11. Skills
