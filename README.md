@@ -27,29 +27,32 @@ Aplicación web de tres capas para reconocer el barrio El Tintal (Localidad de K
   - español e inglés.
 - **Datos** de OpenStreetMap y de Datos Abiertos de Bogotá. Cada dato muestra su fuente y lleva una etiqueta cuando no es oficial: «por verificar», «Prensa» o «dato de ejemplo».
 
-## Estructura
+## Repositorios y arquitectura
 
-| Carpeta | Contenido |
+| Repositorio GitHub | Responsabilidad |
 |---|---|
-| `barrio-frontend/` | Repo Git 1: React 18 + Vite + TypeScript estricto + Tailwind 4 + three/r3f + MapLibre + zustand + i18next |
-| `barrio-backend/` | Repo Git 2: FastAPI + SQLAlchemy 2 + GeoAlchemy2 + Alembic + PostgreSQL/PostGIS (SRID 4326) |
-| `docs/` | Requerimientos, arquitectura, diseño de cada componente, pruebas, informes de fase y publicación |
-| `PLAN_MAESTRO.md` | Plan por hitos, decisiones (D1–D66) y resultados verificados |
-| `MINI MARIE.png` | Spritesheet original del personaje; nunca se modifica |
+| [reconoce-tu-barrio-el-tintal](https://github.com/MarieAnneLopez/reconoce-tu-barrio-el-tintal) | Documentación, decisiones, UML de Modelio y spritesheet original de Mini Marie |
+| [barrio-frontend](https://github.com/MarieAnneLopez/barrio-frontend) | Presentación con React 18, Vite y TypeScript. Incluye mapas de MapLibre, la maqueta 3D con React Three Fiber y la interfaz bilingüe |
+| [barrio-backend](https://github.com/MarieAnneLopez/barrio-backend) | Lógica y persistencia. FastAPI expone los servicios REST y usa SQLAlchemy, GeoAlchemy2 y Alembic sobre PostgreSQL/PostGIS (SRID 4326) |
 
-## Correrla en tu computador
+En producción, Cloudflare Pages sirve la interfaz y reenvía las peticiones `/api/*` a FastAPI en Render. El backend consulta PostGIS en Neon. En desarrollo, el proxy de Vite apunta a la API local y Docker Compose ejecuta PostGIS. Los diagramas y las decisiones están en [Arquitectura](docs/ARQUITECTURA.md) y en el [Plan maestro](PLAN_MAESTRO.md).
 
-Requisitos:
-- Docker Desktop encendido.
-- Python 3.13.
-- Node 24.
-- Git.
+## Reproducir en Windows
+
+Necesitas Git, Python 3.13, Node 24 con npm y Docker Desktop en ejecución. Con acceso a los tres repositorios, clona la documentación y, desde esa raíz, los otros dos repositorios. Si ya tienes las tres copias, continúa con la configuración del backend.
+
+```powershell
+git clone https://github.com/MarieAnneLopez/reconoce-tu-barrio-el-tintal.git
+Set-Location "reconoce-tu-barrio-el-tintal"
+git clone https://github.com/MarieAnneLopez/barrio-backend.git
+git clone https://github.com/MarieAnneLopez/barrio-frontend.git
+```
 
 ### 1. Backend (API en http://127.0.0.1:8000)
 
 ```powershell
 cd "barrio-backend"
-copy .env.example .env                      # valores de ejemplo, sin secretos reales
+if (-not (Test-Path ".env")) { Copy-Item ".env.example" ".env" }
 docker compose up -d                        # PostGIS 16 + 3.4 en Docker
 python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements-dev.txt
@@ -61,6 +64,8 @@ python -m venv .venv
 `etl.runner` sin `--solo` vuelve a descargar los datos reales desde OpenStreetMap y Datos Abiertos (tarda unos 8 minutos). Con `--solo carga` se usan los datos ya preparados en `seed/`, sin internet.
 
 ### 2. Frontend (http://localhost:5173)
+
+Usa otra terminal de PowerShell ubicada en la raíz del repositorio de documentación.
 
 ```powershell
 cd "barrio-frontend"
@@ -100,3 +105,5 @@ Por defecto el chat corre en **Local** (`CHAT_MODEL=analitico`), sin internet ni
 | `docs/PUBLICACION.md` | Cómo está publicada (Cloudflare Pages + Render + Neon) y cómo volver a publicar |
 | `docs/INFORME_FASE_*` | Informes de cierre al 35 %, 70 % y 100 % |
 | `docs/GUION_DEMO.md` | Guion de la demostración en clase (6–7 min), entregables y preguntas frecuentes del profesor |
+| [Modelo UML XMI](modelio_export/diagrama_casos_uso.xmi) · [Trazabilidad](modelio_export/trazabilidad_modelio.md) | Actor Vecino, 14 casos de uso y pasos para abrir el modelo |
+| [Informe E4](docs/INFORME_E4_interfaz_elegante.md) | Evidencia, desviaciones y atribuciones de la entrega |
