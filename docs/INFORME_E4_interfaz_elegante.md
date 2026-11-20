@@ -86,3 +86,9 @@ La rueda, el arrastre y la pinza emulada cambiaron la cámara. Tras cerrar la fi
 Los GIF reproducen los ciclos anterior y actual de Mini Marie a velocidad reducida. Cada ciclo incorpora una pose intermedia derivada de sus referencias con ImageGen. La prueba de apoyo del pie conserva la tolerancia de 3 px en la carrera. [Carrera](capturas/e4/run-comparacion.gif) · [Saludo](capturas/e4/wave-comparacion.gif) · [Sentada](capturas/e4/sit-comparacion.gif)
 
 En las 20 combinaciones de página y ancho medidas, al menos un color se desvió más de tres puntos de su objetivo. La decisión D119, actualizada en D123, permite conservar el reparto real documentado. [Resultados por página](capturas/h35-paleta/desviaciones.csv)
+
+## Publicación comprobada
+
+El 20 de noviembre de 2026 se verificaron las ramas `main` de GitHub y se publicó el backend `10ace6d` en Render (despliegue `dep-dc09mgp42hec73f722cg`, estado `live`). Pages publicó el frontend `59b4cad` y su función de proxy en el despliegue `49148d87`. El dominio de producción sirvió el archivo `/assets/index-DAA3hhPb.js` del build verificado. [Sitio público](https://reconoce-el-tintal.pages.dev) · [Despliegue de Pages](https://49148d87.reconoce-el-tintal.pages.dev)
+
+En el sitio público, Edge comprobó la precarga del atlas de carrera de 240 px, el lienzo del mapa en fase nocturna, la respuesta a la pregunta por el teléfono de la biblioteca con su fuente de BibloRed y la apertura del visor de Galería. El navegador registró cero excepciones de página. La API respondió HTTP 200 al chat y al estado del proveedor. Salud confirmó PostGIS disponible. La primera página de fotos devolvió un elemento con tamaño solicitado de uno y un total de 206 fotos públicas. [Salud de la API](https://reconoce-el-tintal.pages.dev/api/v1/health) · [Fotos públicas](https://reconoce-el-tintal.pages.dev/api/v1/fotos?size=1)
