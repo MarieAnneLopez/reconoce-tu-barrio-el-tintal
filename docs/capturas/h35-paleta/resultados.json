@@ -1,0 +1,442 @@
+[
+  {
+    "route": "/",
+    "width": 390,
+    "file": "390-inicio.png",
+    "excluded": 741480,
+    "other": 99846,
+    "classified": 1637514,
+    "counts": {
+      "crema": 826482,
+      "rosa_claro": 642135,
+      "rosa": 68222,
+      "amarillo": 31286,
+      "marron": 69389
+    },
+    "percent": {
+      "crema": 50.471751691893935,
+      "rosa_claro": 39.214015880169576,
+      "rosa": 4.166193388270268,
+      "amarillo": 1.910579085125379,
+      "marron": 4.237459954540847
+    }
+  },
+  {
+    "route": "/historia",
+    "width": 390,
+    "file": "390-historia.png",
+    "excluded": 141984,
+    "other": 283545,
+    "classified": 3215901,
+    "counts": {
+      "crema": 1902693,
+      "rosa_claro": 883762,
+      "rosa": 281989,
+      "amarillo": 69739,
+      "marron": 77718
+    },
+    "percent": {
+      "crema": 59.16516086782522,
+      "rosa_claro": 27.481007655397352,
+      "rosa": 8.768584605060914,
+      "amarillo": 2.1685680000721415,
+      "marron": 2.4166788716443697
+    }
+  },
+  {
+    "route": "/ranking",
+    "width": 390,
+    "file": "390-ranking.png",
+    "excluded": 182724,
+    "other": 40803,
+    "classified": 703893,
+    "counts": {
+      "crema": 228675,
+      "rosa_claro": 333520,
+      "rosa": 58837,
+      "amarillo": 17196,
+      "marron": 65665
+    },
+    "percent": {
+      "crema": 32.4871820006734,
+      "rosa_claro": 47.38220155620243,
+      "rosa": 8.358798851529992,
+      "amarillo": 2.4429849423136756,
+      "marron": 9.328832649280502
+    }
+  },
+  {
+    "route": "/galeria",
+    "width": 390,
+    "file": "390-galeria.png",
+    "excluded": 230032,
+    "other": 74508,
+    "classified": 998450,
+    "counts": {
+      "crema": 457666,
+      "rosa_claro": 360009,
+      "rosa": 84995,
+      "amarillo": 31867,
+      "marron": 63913
+    },
+    "percent": {
+      "crema": 45.837648354950176,
+      "rosa_claro": 36.05678802143322,
+      "rosa": 8.51269467674896,
+      "amarillo": 3.1916470529320446,
+      "marron": 6.4012218939356
+    }
+  },
+  {
+    "route": "/preguntas",
+    "width": 390,
+    "file": "390-preguntas.png",
+    "excluded": 81984,
+    "other": 60771,
+    "classified": 905175,
+    "counts": {
+      "crema": 314129,
+      "rosa_claro": 418503,
+      "rosa": 75221,
+      "amarillo": 23379,
+      "marron": 73943
+    },
+    "percent": {
+      "crema": 34.703676084734994,
+      "rosa_claro": 46.234485044328444,
+      "rosa": 8.31010578065015,
+      "amarillo": 2.5828154776700636,
+      "marron": 8.168917612616346
+    }
+  },
+  {
+    "route": "/creadora",
+    "width": 390,
+    "file": "390-creadora.png",
+    "excluded": 141912,
+    "other": 53776,
+    "classified": 681812,
+    "counts": {
+      "crema": 145086,
+      "rosa_claro": 377486,
+      "rosa": 72432,
+      "amarillo": 30491,
+      "marron": 56317
+    },
+    "percent": {
+      "crema": 21.279472933887934,
+      "rosa_claro": 55.36511531037881,
+      "rosa": 10.623456319337295,
+      "amarillo": 4.472053879955178,
+      "marron": 8.259901556440779
+    }
+  },
+  {
+    "route": "/ayuda",
+    "width": 390,
+    "file": "390-ayuda.png",
+    "excluded": 81984,
+    "other": 63668,
+    "classified": 1078948,
+    "counts": {
+      "crema": 457199,
+      "rosa_claro": 420100,
+      "rosa": 96870,
+      "amarillo": 39257,
+      "marron": 65522
+    },
+    "percent": {
+      "crema": 42.374516658819516,
+      "rosa_claro": 38.93607476912697,
+      "rosa": 8.978189866425444,
+      "amarillo": 3.6384515287113004,
+      "marron": 6.072767176916774
+    }
+  },
+  {
+    "route": "/acceso",
+    "width": 390,
+    "file": "390-acceso.png",
+    "excluded": 81984,
+    "other": 56571,
+    "classified": 891045,
+    "counts": {
+      "crema": 330553,
+      "rosa_claro": 407346,
+      "rosa": 52409,
+      "amarillo": 31994,
+      "marron": 68743
+    },
+    "percent": {
+      "crema": 37.09722853503471,
+      "rosa_claro": 45.715536252377824,
+      "rosa": 5.8817455908511915,
+      "amarillo": 3.5906155132456834,
+      "marron": 7.7148741084905925
+    }
+  },
+  {
+    "route": "/creditos-fotos",
+    "width": 390,
+    "file": "390-creditos-fotos.png",
+    "excluded": 245952,
+    "other": 1273258,
+    "classified": 14234840,
+    "counts": {
+      "crema": 9411667,
+      "rosa_claro": 3214094,
+      "rosa": 684955,
+      "amarillo": 868304,
+      "marron": 55820
+    },
+    "percent": {
+      "crema": 66.11712530664201,
+      "rosa_claro": 22.579066571875764,
+      "rosa": 4.811820856433933,
+      "amarillo": 6.099850788628464,
+      "marron": 0.3921364764198263
+    }
+  },
+  {
+    "route": "/no-existe",
+    "width": 390,
+    "file": "390-no-existe.png",
+    "excluded": 158415,
+    "other": 38250,
+    "classified": 687465,
+    "counts": {
+      "crema": 198943,
+      "rosa_claro": 315914,
+      "rosa": 75409,
+      "amarillo": 26478,
+      "marron": 70721
+    },
+    "percent": {
+      "crema": 28.938636876059146,
+      "rosa_claro": 45.953466721942206,
+      "rosa": 10.969140247139855,
+      "amarillo": 3.851541533023499,
+      "marron": 10.287214621835293
+    }
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "file": "1440-inicio.png",
+    "excluded": 2636064,
+    "other": 519729,
+    "classified": 4647567,
+    "counts": {
+      "crema": 3044691,
+      "rosa_claro": 1164157,
+      "rosa": 259522,
+      "amarillo": 33665,
+      "marron": 145532
+    },
+    "percent": {
+      "crema": 65.51150311550109,
+      "rosa_claro": 25.048740556080205,
+      "rosa": 5.584039993398696,
+      "amarillo": 0.7243574971592663,
+      "marron": 3.131358837860756
+    }
+  },
+  {
+    "route": "/historia",
+    "width": 1440,
+    "file": "1440-historia.png",
+    "excluded": 146124,
+    "other": 386426,
+    "classified": 9764890,
+    "counts": {
+      "crema": 6700803,
+      "rosa_claro": 1942313,
+      "rosa": 865874,
+      "amarillo": 107890,
+      "marron": 148010
+    },
+    "percent": {
+      "crema": 68.62138744010429,
+      "rosa_claro": 19.890782179829984,
+      "rosa": 8.867217142230993,
+      "amarillo": 1.1048767574442724,
+      "marron": 1.51573648039046
+    }
+  },
+  {
+    "route": "/ranking",
+    "width": 1440,
+    "file": "1440-ranking.png",
+    "excluded": 355444,
+    "other": 44315,
+    "classified": 1941681,
+    "counts": {
+      "crema": 1131508,
+      "rosa_claro": 410717,
+      "rosa": 189040,
+      "amarillo": 23068,
+      "marron": 187348
+    },
+    "percent": {
+      "crema": 58.27465994671628,
+      "rosa_claro": 21.15265071862989,
+      "rosa": 9.735893795118766,
+      "amarillo": 1.1880427320450682,
+      "marron": 9.648752807490006
+    }
+  },
+  {
+    "route": "/galeria",
+    "width": 1440,
+    "file": "1440-galeria.png",
+    "excluded": 1044948,
+    "other": 137165,
+    "classified": 2340127,
+    "counts": {
+      "crema": 1220265,
+      "rosa_claro": 783541,
+      "rosa": 189607,
+      "amarillo": 23893,
+      "marron": 122821
+    },
+    "percent": {
+      "crema": 52.14524681780092,
+      "rosa_claro": 33.482840888550065,
+      "rosa": 8.102423500946744,
+      "amarillo": 1.0210129621170132,
+      "marron": 5.248475830585263
+    }
+  },
+  {
+    "route": "/preguntas",
+    "width": 1440,
+    "file": "1440-preguntas.png",
+    "excluded": 372544,
+    "other": 125643,
+    "classified": 2155733,
+    "counts": {
+      "crema": 1315480,
+      "rosa_claro": 394380,
+      "rosa": 296557,
+      "amarillo": 23399,
+      "marron": 125917
+    },
+    "percent": {
+      "crema": 61.02239934166244,
+      "rosa_claro": 18.294473387938115,
+      "rosa": 13.7566665259566,
+      "amarillo": 1.0854312663024595,
+      "marron": 5.841029478140382
+    }
+  },
+  {
+    "route": "/creadora",
+    "width": 1440,
+    "file": "1440-creadora.png",
+    "excluded": 372544,
+    "other": 37633,
+    "classified": 1945663,
+    "counts": {
+      "crema": 1088217,
+      "rosa_claro": 512296,
+      "rosa": 158860,
+      "amarillo": 13652,
+      "marron": 172638
+    },
+    "percent": {
+      "crema": 55.930394934785724,
+      "rosa_claro": 26.330150699273204,
+      "rosa": 8.164826077280598,
+      "amarillo": 0.7016631348799869,
+      "marron": 8.872965153780486
+    }
+  },
+  {
+    "route": "/ayuda",
+    "width": 1440,
+    "file": "1440-ayuda.png",
+    "excluded": 372544,
+    "other": 80151,
+    "classified": 2761385,
+    "counts": {
+      "crema": 1567580,
+      "rosa_claro": 699095,
+      "rosa": 337262,
+      "amarillo": 31520,
+      "marron": 125928
+    },
+    "percent": {
+      "crema": 56.76789002620062,
+      "rosa_claro": 25.3168247093397,
+      "rosa": 12.21350880083726,
+      "amarillo": 1.141456189557052,
+      "marron": 4.560320274065369
+    }
+  },
+  {
+    "route": "/acceso",
+    "width": 1440,
+    "file": "1440-acceso.png",
+    "excluded": 372544,
+    "other": 43055,
+    "classified": 2206641,
+    "counts": {
+      "crema": 1393470,
+      "rosa_claro": 438329,
+      "rosa": 189027,
+      "amarillo": 26611,
+      "marron": 159204
+    },
+    "percent": {
+      "crema": 63.1489218228067,
+      "rosa_claro": 19.86408301123744,
+      "rosa": 8.566277885709546,
+      "amarillo": 1.2059505828088937,
+      "marron": 7.214766697437417
+    }
+  },
+  {
+    "route": "/creditos-fotos",
+    "width": 1440,
+    "file": "1440-creditos-fotos.png",
+    "excluded": 171648,
+    "other": 1451655,
+    "classified": 26384697,
+    "counts": {
+      "crema": 20504087,
+      "rosa_claro": 4109128,
+      "rosa": 749778,
+      "amarillo": 888700,
+      "marron": 133004
+    },
+    "percent": {
+      "crema": 77.71204270414779,
+      "rosa_claro": 15.573906344272212,
+      "rosa": 2.8417154079881985,
+      "amarillo": 3.368240309903881,
+      "marron": 0.5040952336879214
+    }
+  },
+  {
+    "route": "/no-existe",
+    "width": 1440,
+    "file": "1440-no-existe.png",
+    "excluded": 343744,
+    "other": 37771,
+    "classified": 1768405,
+    "counts": {
+      "crema": 1088552,
+      "rosa_claro": 391592,
+      "rosa": 85919,
+      "amarillo": 22996,
+      "marron": 179346
+    },
+    "percent": {
+      "crema": 61.55558257299657,
+      "rosa_claro": 22.143796245769494,
+      "rosa": 4.8585589839431575,
+      "amarillo": 1.3003808516714215,
+      "marron": 10.141681345619357
+    }
+  }
+]
