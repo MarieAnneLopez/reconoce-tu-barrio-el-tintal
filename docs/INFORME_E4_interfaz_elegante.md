@@ -68,3 +68,21 @@ Se cotejaron los nombres de Modelio con la [especificación original, §5.4](ori
 | Fotos de Inicio y fichas | El catálogo `barrio-frontend/src/features/home/carouselCredits.json` conserva autor, licencia y enlace por foto de Commons. El ETL de fichas exige autor, licencia y página de origen en las semillas de Commons y Mapillary. [Inventario de fuentes de la gran actualización](INFORME-GRAN-ACTUALIZACION.md) |
 | Tipografía Soria | SIL Open Font License 1.1, incluida en `barrio-frontend/public/assets/fonts/soria/OFL.txt`. |
 | Mini Marie y cielo de la maqueta | El spritesheet original de Mini Marie está en la raíz del repositorio académico. E4 incorpora intermedios de carrera, saludo y sentada, y un WebP para la nube nocturna, generados con ImageGen. Las comparaciones documentan la integración con el material del proyecto. |
+
+## Verificación local de la actualización del 20 de noviembre
+
+Frontend `59b4cad`, backend `10ace6d`. Los comandos de frontend se ejecutaron en `barrio-frontend` y los de backend en `barrio-backend`.
+
+| Comprobación | Resultado |
+|---|---|
+| `npm run lint`, `npm run typecheck`, `npm run build` | Código de salida 0 en las tres comprobaciones |
+| `npx vitest run --maxWorkers=1 --testTimeout=15000 --no-color` | 274 archivos aprobados, 1517 pruebas aprobadas, 1 omitida |
+| `npx playwright test` en Edge | 101 aprobadas, 74 omitidas según la configuración por idioma y tamaño. Se repitieron las 4 comprobaciones de foco y galería sobre el build final y pasaron las 4 |
+| `pytest --cov=app --tb=short` con PostGIS aislado | 341 aprobadas, cobertura 96,26 % |
+| `node scripts/check_line_length.mjs` y `python scripts/check_line_length.py` | 836 archivos de frontend y 242 de backend dentro de 100 líneas |
+
+La rueda, el arrastre y la pinza emulada cambiaron la cámara. Tras cerrar la ficha de un edificio, navegar a Zonas Verdes y volver desde otra pestaña, la rueda redujo la distancia de 7403 a 7033 unidades. En Edge con una RTX 4050, la muestra de escritorio fue de 6,94 ms por cuadro y la de móvil emulado durante la pinza, de 13,61 ms. Son mediciones de ese equipo. [Mapa a 1440 px](capturas/e4/mapa-noche-1440.png) · [Mapa a 390 px](capturas/e4/mapa-noche-390.png)
+
+Los GIF reproducen los ciclos anterior y actual de Mini Marie a velocidad reducida. Cada ciclo incorpora una pose intermedia derivada de sus referencias con ImageGen. La prueba de apoyo del pie conserva la tolerancia de 3 px en la carrera. [Carrera](capturas/e4/run-comparacion.gif) · [Saludo](capturas/e4/wave-comparacion.gif) · [Sentada](capturas/e4/sit-comparacion.gif)
+
+En las 20 combinaciones de página y ancho medidas, al menos un color se desvió más de tres puntos de su objetivo. La decisión D119, actualizada en D123, permite conservar el reparto real documentado. [Resultados por página](capturas/h35-paleta/desviaciones.csv)
